@@ -1,0 +1,11 @@
+<div class="parallax <%= opts.delete(:outer_class) %>">
+  <% %w|top-left top-right bottom-left bottom-right|.each_with_index do |c, i| %>
+    <div class="parallax-<%= c %>" tabindex="<%= i + 1 %>"></div>
+  <% end %>
+
+  <div class="parallax-content">
+    <div class="parallax-back">
+      <%= image_tag image, opts %>
+    </div>
+  </div>
+</div>

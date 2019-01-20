@@ -1,0 +1,14 @@
+<%= artwork_tag @artwork, class: 'artwork-image' %>
+
+<div>
+  <strong><%= @artwork.title %></strong> by 
+  <%= @artwork.user.username %>
+</div>
+
+<% if (prev_art = prev_artwork_by_author_of(@artwork)) %>
+  <%= link_to 'Prev', prev_art %>
+<% end %>
+
+<% if (next_art = next_artwork_by_author_of(@artwork)) %>
+  <%= link_to 'Next', next_art %>
+<% end %>

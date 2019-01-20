@@ -1,0 +1,15 @@
+<%= form_with(model: artwork) do |f| %>
+  <div class="block">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="block">
+    <%= f.label :parallax %>
+    <%= f.check_box :parallax %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>MeteorlensTest</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag "application" %>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <div id="container">
+      <aside id="sidebar">
+        <%= rp sidebar_partial %>
+      </aside>
+
+      <main id="main">
+        <%= yield %>
+      </main>
+    </div>
+  </body>
+</html>
