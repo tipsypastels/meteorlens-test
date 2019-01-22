@@ -34,3 +34,22 @@ input[type='submit'] {
     }
   }
 }
+
+input[type='text'],
+input[type='email'],
+input[type='password'] {
+  padding: 0.5em 0.25em;
+  font-size: 1em;
+
+  border: none;
+  outline: none;
+
+  border-bottom: 2px solid $primary-color;
+
+  color: $secondary-color;
+  background-color: $body-color;
+
+  &::placeholder {
+    font-style: italic;
+  }
+}
