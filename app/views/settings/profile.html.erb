@@ -1,0 +1,10 @@
+<%= form_with(url: save_settings_path, local: true) do |f| %>
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

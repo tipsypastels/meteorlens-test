@@ -1,14 +1,48 @@
 #container {
   display: flex;
-  width: 100vw;
+  margin: 1em;
+}
+
+#header {
+  padding: 8px 0;
+  margin-bottom: 16px;
+  
+  .header-inner {
+    margin: 0 10px;
+    padding: 0 1em;
+
+    box-shadow: 0  4px $primary-color,
+                0  8px $body-color,
+                0 12px $primary-color;
+  }
+}
+
+.breadcrumbs {
+  display: flex;
+
+  div {
+    color: $grey-color;
+    padding: 0 0.33em;
+    font-weight: bold;
+    
+    a {
+      font-weight: normal;
+      color: white;
+    }
+  }
+
+  svg, i {
+    height: 1.5em;
+  }
 }
 
 #sidebar {
-  flex-basis: 25%;
-  flex-grow: 0.25;
-  max-width: 300px; 
+  flex: 0 0 20%;
+  max-width: 150px;
 }
 
 #main {
-  flex-grow: 0.75;
+  flex-basis: 0;
+  flex-grow: 1;
+  max-width: 100%;
 }

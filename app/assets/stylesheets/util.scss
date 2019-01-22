@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.v-center {
+  align-items: center;
+}
+
 .grows,
 .spacer {
   flex-grow: 1;

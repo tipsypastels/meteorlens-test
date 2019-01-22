@@ -1,3 +1,30 @@
 // Place all the styles related to the user controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$avatar-sizes: (
+  sm: 32px,
+  md: 64px,
+  lg: 100px,
+  xl: 150px,
+);
+
+.avatar {
+  border-radius: 50%;
+
+  background-color: $primary-color;
+  color: white;
+  font-weight: 300;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @each $class, $size in $avatar-sizes {
+    &.avatar-#{$class} {
+      font-size: $size / 2;
+      width: $size;
+      height: $size;
+    }
+  }
+}

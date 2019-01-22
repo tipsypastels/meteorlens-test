@@ -12,14 +12,18 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-min.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
   </head>
 
   <body>
+    <%= rp 'layouts/header' unless header_mode.none? %>
+
     <div id="container">
-      <aside id="sidebar">
-        <%= rp sidebar_partial %>
-      </aside>
+      <% if false && TODO %>
+        <aside id="sidebar">
+          <%= rp sidebar_partial %>
+        </aside>
+      <% end %>
 
       <main id="main">
         <%= yield %>

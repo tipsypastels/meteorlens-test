@@ -2,11 +2,16 @@ class ArtworksController < ApplicationController
   before_action :set_artwork, only: %i|show edit update destroy|
   before_action :authenticate_user!, only: %i|new create edit update destroy|
 
+  add_breadcrumb I18n.t('artworks.index.title'), :artworks_path
+
   def index
-    @artworks = Artwork.on_index
+    @artworks = fetch_feed(ArtworkFeed)
+      .with_attached_image
+      .includes(:user)
   end
 
   def show
+    add_breadcrumb @artwork.title
   end
 
   def new

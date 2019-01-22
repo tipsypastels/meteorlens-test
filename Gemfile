@@ -28,7 +28,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use ActiveStorage variant
-# gem 'mini_magick', '~> 4.8'
+gem 'mini_magick', '~> 4.8'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -44,9 +44,6 @@ gem 'react-rails'
 gem 'jquery-rails'
 gem 'render_async'
 gem 'i18n-js'
-
-# Fa-5
-gem 'font-awesome-sass', '~> 5.3.1'
 
 # Accounts
 gem 'devise'
@@ -64,6 +61,7 @@ gem 'breadcrumbs_on_rails'
 # Relations
 gem 'counter_culture', '~> 2.0'
 gem 'acts-as-taggable-on'
+gem 'acts_as_follower', github: 'tcocca/acts_as_follower', branch: 'master'
 
 # Env variables
 gem 'figaro'

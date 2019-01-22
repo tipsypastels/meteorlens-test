@@ -4,4 +4,13 @@ class ApplicationController < ActionController::Base
   def configure_permitted_params
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username])
   end
+
+  def current_user?(user)
+    current_user && current_user == user
+  end
+  helper_method :current_user?
+
+  def fetch_feed(feed)
+    feed.for(current_user, params[:page])
+  end
 end

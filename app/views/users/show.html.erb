@@ -1,1 +1,5 @@
 <%= @user.username %>
+
+<%= avatar_for @user, size: :xl %>
+
+<%= follow_form_for(@user) %>

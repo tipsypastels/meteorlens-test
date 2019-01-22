@@ -1,17 +1,22 @@
 .site-logo {
-  display: block;
-  text-align: center;
-
-  font-size: 2em;
   font-weight: bold;
-  text-transform: uppercase;
-
-  color: $primary-color;
   
-  span {
-    padding: 0 10px;
-    box-shadow: 0 4px $primary-color,
-                0 8px $body-color,
-                0 12px $primary-color;
+  text-transform: uppercase;
+  font-family: $branding-font;
+
+  &, & > svg {
+    color: $primary-color;
+  }
+  
+  svg {
+    margin-bottom: 3px;
+
+    &:last-child {
+      margin-right: 0.25em;
+    }
+  }
+
+  &:not(.informal) {
+    font-size: 2em;
   }
 }
