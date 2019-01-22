@@ -36,6 +36,9 @@ gem 'mini_magick', '~> 4.8'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Windows bs
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
 # React
 gem 'webpacker'
 gem 'react-rails'

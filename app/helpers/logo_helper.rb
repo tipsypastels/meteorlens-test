@@ -18,7 +18,7 @@ module LogoHelper
   end
 
   def header_mode
-    @header_mode&.to_s&.inquiry
+    @header_mode&.to_s&.inquiry || ''.inquiry
   end
 
   def meteor_logo

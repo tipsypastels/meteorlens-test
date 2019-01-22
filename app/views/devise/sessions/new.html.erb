@@ -1,25 +1,34 @@
 <% header_mode! :none %>
 
-<%= ticker_type "you're here", "welcome", "now the party", "can finally start", "meteor lens", class: 'site-logo' %>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <%= ticker_type "you're here", "welcome", "now the party", "can finally start", "meteor lens", class: 'site-logo' %>
+
   <div class="field">
-    <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "Username" %>
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "What are you known as" %>
   </div>
 
   <div class="field">
-    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password" %>
+    <%= f.password_field :password, autocomplete: "current-password", placeholder: "Super secret passcode" %>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
     <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="actions flex v-center">
+    <% if devise_mapping.rememberable? -%>
+      <div class="grows">
+        <div class="checkbox-container">
+          <%= f.check_box :remember_me %>
+          <label for="user_remember_me"></label>
+        </div>
+
+        <%= f.label :remember_me, 'Remember?' %>
+      </div>
+    <% end -%>
+
+    <div class="submit">
+      <%= f.submit "Login" %>
+    </div>
   </div>
 <% end %>
 

@@ -1,5 +1,5 @@
 module TypographyHelper
-  def ticker_type(*texts, delay: 100, full_word_delay: 1000, repeat: false, **opts)
+  def ticker_type(*texts, delay: 75, full_word_delay: 800, repeat: false, **opts)
     texts = texts.join('|')
     
     nbsp_content_tag(:div,
