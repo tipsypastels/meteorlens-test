@@ -16,18 +16,22 @@
   </head>
 
   <body>
-    <%= rp 'layouts/header' unless header_mode.none? %>
+    <% if @skip_layout %>
+      <%= yield %>
+    <% else %>
+      <%= rp 'layouts/header' %>
 
-    <div id="container">
-      <% if false && TODO %>
-        <aside id="sidebar">
-          <%= rp sidebar_partial %>
-        </aside>
-      <% end %>
+      <div id="container">
+        <% if false && TODO %>
+          <aside id="sidebar">
+            <%= rp sidebar_partial %>
+          </aside>
+        <% end %>
 
-      <main id="main">
-        <%= yield %>
-      </main>
-    </div>
+        <main id="main">
+          <%= yield %>
+        </main>
+      </div>
+    <% end %>
   </body>
 </html>

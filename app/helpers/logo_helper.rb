@@ -1,6 +1,6 @@
 module LogoHelper
   def meteor_branding
-    if current_page?(root_path) || header_mode.full?
+    if current_page?(root_path)
       link_to "Meteor Lens", root_path, class: 'site-logo grows'
     else
       content = [
@@ -11,14 +11,6 @@ module LogoHelper
 
       content_tag :div, content, class: 'grows flex v-center'
     end
-  end
-
-  def header_mode!(mode)
-    @header_mode = mode
-  end
-
-  def header_mode
-    @header_mode&.to_s&.inquiry || ''.inquiry
   end
 
   def meteor_logo

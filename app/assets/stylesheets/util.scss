@@ -10,3 +10,11 @@
 .spacer {
   flex-grow: 1;
 }
+
+.divider {
+  height: 1px;
+  width: 100%;
+  background-color: $secondary-color-dark;
+
+  margin: 1.5em 0;
+}

@@ -3,10 +3,6 @@
 $body-font: Open Sans;
 $branding-font: Dosis;
 
-$primary-color:   #d1394e;
-$secondary-color: #f7735c;
-$grey-color:      #d8d8d8;
-
 $text-color:      white;
 $body-color:      #101524;
 $block-color:     #221022;
@@ -14,5 +10,13 @@ $block-color:     #221022;
 $heading-color:   #121212;
 $shadow-color:    #111;
 
+$primary-color:   #d1394e;
+$secondary-color: #f7735c;
+$grey-color:      #d8d8d8;
+
+$primary-color-light:   lighten($primary-color, 8%);
+$secondary-color-light: lighten($secondary-color, 8%);
+$primary-color-dark:    darken($primary-color, 8%);
+$secondary-color-dark:  mix($secondary-color, $body-color, 65%);
 
 $primary-gradient: linear-gradient(to bottom,#a6274e 0%,#cd2f46 73%,#d1394e 100%);

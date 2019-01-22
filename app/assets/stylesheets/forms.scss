@@ -1,3 +1,4 @@
+.btn,
 button,
 input[type='submit'] {
   background-color: $secondary-color;
@@ -13,6 +14,8 @@ input[type='submit'] {
   border-radius: 3px;
   border-bottom: 2px solid darken($secondary-color, 5%);
   box-sizing: border-box;
+
+  cursor: pointer;
 
   &:focus {
     outline: none;
@@ -57,7 +60,8 @@ input[type='password'] {
   }
 }
 
-form {
+.form-container,
+:not(.form-container) form {
   width: 100%;
   max-width: 300px;
   margin: auto;
@@ -119,6 +123,7 @@ form {
   }
 
   & + label {
+    margin-left: 0.25em;
     color: $secondary-color;
     font-family: Dosis;
   }
