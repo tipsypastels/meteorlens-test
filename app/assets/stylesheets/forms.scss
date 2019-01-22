@@ -60,8 +60,7 @@ input[type='password'] {
   }
 }
 
-.form-container,
-:not(.form-container) form {
+.form-container {
   width: 100%;
   max-width: 300px;
   margin: auto;
@@ -127,4 +126,12 @@ input[type='password'] {
     color: $secondary-color;
     font-family: Dosis;
   }
+}
+
+.flash {
+  font-family: Dosis;
+  background-color: $primary-color;
+  
+  padding: 5px 10px;
+  border-radius: 3px;
 }

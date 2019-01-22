@@ -10,7 +10,8 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user?
 
-  def fetch_feed(feed)
-    feed.for(current_user, params[:page])
+  def feed_for(model)
+    feed = Object.const_get("#{model}Feed")
+    feed.for(current_user, params[:page], model)
   end
 end

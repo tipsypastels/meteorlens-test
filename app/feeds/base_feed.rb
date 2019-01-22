@@ -1,15 +1,12 @@
 class BaseFeed
-  class << self
-    attr_accessor :model
-    
-    def for(user, page)
-      new(user, page).fetch
-    end
+  def self.for(user, page, model)
+    new(user, page, model).fetch
   end
 
-  def initialize(user, page)
-    @user = user
-    @page = page
+  def initialize(user, page, model)
+    @user  = user
+    @page  = page
+    @model = model
   end
 
   def fetch
@@ -27,16 +24,12 @@ class BaseFeed
   end
 
   def fetch_for_user
-    model.where('user_id IN (?) OR user_id = ?',
+    @model.where('user_id IN (?) OR user_id = ?',
       @user.all_following.collect(&:id), @user.id,
     )
   end
 
   def fetch_for_anon
-    model
-  end
-
-  def model
-    self.class.model
+    @model
   end
 end

@@ -4,7 +4,7 @@
   <div id="sidebar" class="sidebar-on-artwork">
     <div class="form-container">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= ticker_type "you're here", "welcome", "now the party", "can finally start", "meteor lens", class: 'site-logo' %>
+        <%= ticker_type I18n.t('tickers.login'), class: 'site-logo' %>
 
         <div class="field">
           <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "What are you known as" %>
@@ -37,6 +37,12 @@
       <%= render "devise/shared/links" %>
     </div>
   </div>
-</div>
 
-  <div id="main"></div>
+  <div id="main" class="main-on-artwork">
+    <% flash.each do |key, value| %>
+      <div class="flash flash-<%= key %>">
+        <%= value %>
+      </div>
+    <% end %> 
+  </div>
+</div>

@@ -5,7 +5,7 @@ class ArtworksController < ApplicationController
   add_breadcrumb I18n.t('artworks.index.title'), :artworks_path
 
   def index
-    @artworks = fetch_feed(ArtworkFeed)
+    @artworks = feed_for(Artwork)
       .with_attached_image
       .includes(:user)
   end
