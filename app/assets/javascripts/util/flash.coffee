@@ -9,16 +9,17 @@
     </div>
   """)
 
-  $('#flash-wrapper').prepend $node
+  $('#flash-wrapper').prepend($node)
   dismissLater($node, flashDismissSeconds)
 
 dismissLater = ($node, seconds) ->
   setTimeout ->
-    $node.remove()
+    $node.fadeOut ->
+      $node.remove()
   , seconds * 1000
 
 $(document).on 'turbolinks:load', ->
   $('[data-dismiss-in]').each ->
-    $node = $(this)
+    $node   = $(this)
     seconds = $node.attr('data-dismiss-in')
     dismissLater($node, seconds)
