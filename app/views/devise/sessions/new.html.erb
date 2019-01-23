@@ -1,48 +1,36 @@
-<div id="container" class="no-margin" style="background-image: url(https://66.media.tumblr.com/cf0a29d1187d75b9eb3559047ff51933/tumblr_pgn80yapXa1wnjxxqo10_540.png)">
-  <% @skip_layout = true %>
+<% body_class! 'sidebar-static sidebar-v-center login' %>
+<% no_header! %>
 
-  <div id="sidebar" class="sidebar-on-artwork">
-    <div class="form-container">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <%= ticker_type I18n.t('tickers.login'), class: 'site-logo' %>
+<% content_for :sidebar do %>
+  <div class="form-container">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), builder: ExtendedFormBuilder) do |f| %>
+      <%= ticker_type I18n.t('tickers.login'), class: 'site-logo' %>
 
-        <div class="field">
-          <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "What are you known as" %>
-        </div>
-
-        <div class="field">
-          <%= f.password_field :password, autocomplete: "current-password", placeholder: "Super secret passcode" %>
-        </div>
-
-        <div class="actions flex v-center">
-          <% if devise_mapping.rememberable? -%>
-            <div class="grows">
-              <div class="checkbox-container">
-                <%= f.check_box :remember_me %>
-                <label for="user_remember_me"></label>
-              </div>
-
-              <%= f.label :remember_me, 'Remember?' %>
-            </div>
-          <% end -%>
-
-          <div class="submit">
-            <%= f.submit "Login" %>
-          </div>
-        </div>
-      <% end %>
-
-      <div class="divider"></div>
-
-      <%= render "devise/shared/links" %>
-    </div>
-  </div>
-
-  <div id="main" class="main-on-artwork">
-    <% flash.each do |key, value| %>
-      <div class="flash flash-<%= key %>">
-        <%= value %>
+      <div class="field">
+        <%= f.text_field :username, autofocus: true, autocomplete: "username", placeholder: "What are you known as" %>
       </div>
-    <% end %> 
+
+      <div class="field">
+        <%= f.password_field :password, autocomplete: "current-password", placeholder: "Super secret passcode" %>
+      </div>
+
+      <div class="actions flex v-center">
+        <% if devise_mapping.rememberable? -%>
+          <div class="grows">
+            <%= f.check_box :remember_me %>
+
+            <%= f.label :remember_me, 'Remember?' %>
+          </div>
+        <% end -%>
+
+        <div class="submit">
+          <%= f.submit "Login" %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="divider"></div>
+
+    <%= render "devise/shared/links" %>
   </div>
-</div>
+<% end %>

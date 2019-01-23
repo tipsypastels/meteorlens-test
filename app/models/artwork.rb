@@ -11,5 +11,7 @@ class Artwork < ApplicationRecord
   
   has_one_attached :image
 
+  acts_as_taggable
+
   friendly_id :title, use: :slugged
 end

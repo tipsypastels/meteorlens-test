@@ -1,0 +1,8 @@
+<% if @saved %>
+  $('#artwork-title').text('<%= @artwork.title %>');
+
+  closeSidebar(() => {
+    flash('notice', I18n.t('artworks.update.success'));
+  });
+<% else %>
+<% end %>

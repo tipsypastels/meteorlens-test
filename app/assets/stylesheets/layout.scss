@@ -1,18 +1,3 @@
-body {
-  height: 100vh;
-}
-
-#container {
-  display: flex;
-  height: 100vh;
-
-  background-size: cover;
-
-  &:not(.no-margin) {
-    margin: 1em;
-  }
-}
-
 #header {
   padding: 8px 0;
   margin-bottom: 16px;
@@ -59,9 +44,57 @@ body {
     justify-content: center;
 
     background-color: $body-color;
+  }
+}
+
+#sidebar-wrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  
+  top: 0;
+  left: 0;
+
+  body:not(.sidebar-static):not(.sidebar-open) & {
+    pointer-events: none;
+  }
+
+  body:not(.sidebar-static).sidebar-open & {
+    background-color: rgba($body-color, 50%);
+  }
+  
+  #sidebar {
+    body:not(.sidebar-open):not(.sidebar-static) & {
+      width: 0 !important;
+    }
+    
+    overflow: hidden;
+
+    height: 100%;
+    width: 400px;
+    max-width: 100%;
+
+    transition: 0.25s ease-in;
+    
+    background-color: $body-color;
     box-shadow:  4px 0 $primary-color,
                  8px 0 $body-color,
                 12px 0 $primary-color;
+
+    #sidebar-content {
+      height: 100%;
+      width:400px;
+      max-width: 100vw;
+
+      box-sizing: border-box;
+      padding: 1em;
+
+      body.sidebar-v-center & {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 }
 
@@ -69,6 +102,10 @@ body {
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
+
+  body:not(.no-main-margin) & {
+    margin: 1em;
+  }
 
   &.main-on-artwork {
     display: flex;

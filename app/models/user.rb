@@ -14,6 +14,8 @@ class User < ApplicationRecord
     
   acts_as_followable
   acts_as_follower
+
+  acts_as_tagger
   
   devise :database_authenticatable, :registerable,
       :recoverable, :rememberable, :validatable

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users,
+    path: '',
+    path_names: { sign_in: 'login', sign_out: 'logout' }
+
   get '/@:id', to: 'users#show', as: :user
 
   scope '/internal', as: :internal do
@@ -17,7 +20,7 @@ Rails.application.routes.draw do
     post '/save', to: 'settings#save', as: :save_settings
   end
 
-  resources :artworks, path: :art
+  resources :artworks, path: :art, except: :edit
 
   root to: 'timeline#index'
 end

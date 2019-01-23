@@ -4,6 +4,7 @@
     <title>MeteorlensTest</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= Flash.as_js %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,22 +16,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">    
   </head>
 
-  <body>
-    <% if @skip_layout %>
+  <body class="<%= @body_class %>">
+    <%= rp 'layouts/header' unless @no_header %>
+
+    <% if content_for? :sidebar %>
+      <div id="sidebar-wrapper">
+        <aside id="sidebar">
+          <div id="sidebar-content">
+            <%= content_for :sidebar %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <main id="main">
       <%= yield %>
-    <% else %>
-      <%= rp 'layouts/header' %>
+    </main>
 
-      <div id="container">
-        <% if false && TODO %>
-          <aside id="sidebar">
-            <%= rp sidebar_partial %>
-          </aside>
+    <% unless @no_flash %>
+      <div id="flash-wrapper">
+        <% flash.each do |key, value| %>
+          <div class="flash flash-<%= key %>" data-dismiss-in="<%= Flash::DISMISS_SECONDS %>">
+            <%= fas Flash.icon_for(key, value) %>
+
+            <span class="flash-content">
+              <%= value %>
+            </span>
+          </div>
         <% end %>
-
-        <main id="main">
-          <%= yield %>
-        </main>
       </div>
     <% end %>
   </body>

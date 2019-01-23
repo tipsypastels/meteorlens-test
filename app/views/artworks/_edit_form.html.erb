@@ -1,15 +1,22 @@
-<%= form_with(model: artwork) do |f| %>
-  <div class="block">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
-  </div>
+<div class="form-container">
+  <%= form_with(model: artwork, builder: ExtendedFormBuilder) do |f| %>
+    <div class="site-logo">Editing...</div>
 
-  <div class="block">
-    <%= f.label :parallax %>
-    <%= f.check_box :parallax %>
-  </div>
+    <div class="field">
+      <%= f.text_field :title, placeholder: 'Artwork Title' %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.tags_field value: f.object.tag_list.to_s, placeholder: 'Tags' %>
+    </div>
+
+    <div class="field">
+      <%= f.check_box :parallax %>
+      <%= f.label :parallax %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

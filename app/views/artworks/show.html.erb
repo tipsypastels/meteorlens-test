@@ -1,9 +1,21 @@
+<% body_class! 'artwork-show sidebar-v-center' %>
+
 <%= artwork_tag @artwork, class: 'artwork-image' %>
 
 <div>
-  <strong><%= @artwork.title %></strong> by 
+  <strong id="artwork-title"><%= @artwork.title %></strong> by 
   <%= @artwork.user.username %>
 </div>
+
+<% if current_user? @artwork.user %>
+  <% content_for :sidebar do %>
+    <%= rp 'artworks/edit_form', artwork: @artwork %>
+  <% end %> 
+
+  <button class="primary" data-behavior="open-sidebar">
+    <%= t('.open-editor') %>
+  </button>
+<% end %>
 
 <% if (prev_art = prev_artwork_by_author_of(@artwork)) %>
   <%= link_to 'Prev', prev_art %>

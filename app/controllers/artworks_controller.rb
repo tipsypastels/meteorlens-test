@@ -33,11 +33,8 @@ class ArtworksController < ApplicationController
   end
 
   def update
-    if @artwork.update(artwork_params)
-      redirect_to @artwork
-    else
-      render 'new'
-    end
+    @saved = @artwork.update(artwork_params)
+    respond_to :js
   end
 
   private
@@ -47,6 +44,6 @@ class ArtworksController < ApplicationController
   end
 
   def artwork_params
-    params.require(:artwork).permit(:title, :description, :image, :parallax)
+    params.require(:artwork).permit(:title, :description, :image, :parallax, :tag_list)
   end
 end
