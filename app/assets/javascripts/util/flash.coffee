@@ -22,4 +22,5 @@ $(document).on 'turbolinks:load', ->
   $('[data-dismiss-in]').each ->
     $node   = $(this)
     seconds = $node.attr('data-dismiss-in')
+    
     dismissLater($node, seconds)
