@@ -39,12 +39,13 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Windows bs
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
-# React
+# React and Compiling
 gem 'webpacker'
 gem 'react-rails'
 
 # Front end helpers
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'render_async'
 gem 'i18n-js'
 

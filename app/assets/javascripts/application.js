@@ -15,6 +15,7 @@
 //= require turbolinks
 
 //= require jquery
+//= require jquery-ui
 //= require i18n
 //= require i18n/translations
 
